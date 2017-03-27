@@ -1,0 +1,35 @@
+{
+  "name": "test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/app.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "start": "./node_modules/.bin/gulp serve",
+    "test": "./node_modules/.bin/gulp test",
+    "list": "./node_modules/.bin/gulp lint::js"
+  },
+  "author": "Yaroslav Tkachenko",
+  "license": "ISC",
+  "dependencies": {
+    "config": "^1.25.1",
+    "cors": "^2.8.1",
+    "errors": "^0.3.0",
+    "express": "^4.15.2",
+    "moment": "^2.18.1",
+    "superagent": "^3.5.2",
+    "swagger-express-mw": "^0.7.0",
+    "swagger-ui-middleware": "^1.0.0"
+  },
+  "devDependencies": {
+    "eslint": "^3.18.0",
+    "gulp": "git+https://github.com/gulpjs/gulp.git#4d726af750638d022126d653ccd1c397697cadc6",
+    "mocha": "^3.2.0",
+    "nodemon": "^1.11.0",
+    "shelljs": "^0.7.7",
+    "should": "^11.2.1",
+    "supertest": "^3.0.0"
+  }
+}

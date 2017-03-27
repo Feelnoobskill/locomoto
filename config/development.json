@@ -1,0 +1,16 @@
+{
+  "app": {
+    "swaggerJsonPath": "/swagger",
+    "swaggerUiPath": "/swagger/ui",
+    "port": 3000,
+    "appName": "locomote-test"
+  },
+  "resource": {
+    "flights": {
+      "baseUrl": "http://node.locomote.com/"
+    }
+  },
+  "middleware": {
+    "includeStackTraceInErrorResponses": true
+  }
+}

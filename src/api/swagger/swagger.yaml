@@ -1,0 +1,99 @@
+swagger: '2.0'
+info:
+  version: 1.0.0
+  title: Locomote API
+basePath: /api
+schemes:
+  - http
+consumes:
+  - application/json
+produces:
+  - application/json
+paths:
+  /airlines:
+    x-swagger-router-controller: controller
+    get:
+      description: find airports
+      operationId: getAirlines
+      tags:
+        - airlines
+        - search
+      responses:
+        200:
+          description: Success
+        404:
+          description: Flights not found
+        default:
+          description: Error
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+
+  /airports:
+    x-swagger-router-controller: controller
+    get:
+      description: find airports
+      operationId: getAirports
+      tags:
+        - airports
+        - search
+      parameters:
+        - name: q
+          in: query
+          description: text based search param
+          type: string
+          required: true
+          minLength: 2
+      responses:
+        200:
+          description: Success
+        404:
+          description: Flights not found
+        default:
+          description: Error
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+
+  /search:
+    x-swagger-router-controller: controller
+    get:
+      description: find flights
+      operationId: searchFlights
+      tags:
+        - flights
+        - search
+      parameters:
+        - name: date
+          in: query
+          description: departure date
+          required: true
+          type: string
+        - name: from
+          in: query
+          description: city
+          type: string
+          required: true
+        - name: to
+          in: query
+          description: city
+          type: string
+          required: true
+      responses:
+        200:
+          description: Success
+        404:
+          description: Flights not found
+        default:
+          description: Error
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+
+  /swagger:
+    x-swagger-pipe: swagger_raw
+
+definitions:
+  ErrorResponse:
+    required:
+      - message
+    properties:
+      message:
+        type: string

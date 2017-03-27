@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Locomote test</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
+    <script src="main.js"></script>
+    <style>
+        .hide {
+            display: none;
+        }
+        #loader {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            z-index: 1;
+            width: 150px;
+            height: 150px;
+            margin: -75px 0 0 -75px;
+            border: 16px solid #f3f3f3;
+            border-radius: 50%;
+            border-top: 16px solid #3498db;
+            width: 120px;
+            height: 120px;
+            -webkit-animation: spin 2s linear infinite;
+            animation: spin 2s linear infinite;
+        }
+
+        .not_found {
+                margin: auto;
+                padding: 60px;
+                width: 400px;
+                font-size: 22px;
+                text-align: center;
+            }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+
+    </style>
+</head>
+<body>
+
+<div class="container" style="width: 800px; margin: 50px auto;">
+    <div id="error" style="color: red;"></div>
+    <div>
+        <form class="form-inline" id="search">
+            <div class="form-group">
+                <label for="from">From:</label>
+                <input type="text" placeholder="From location" class="form-control" id="from" required>
+            </div>
+            <div class="form-group">
+                <label for="to">To:</label>
+                <input type="text" placeholder="To location" class="form-control" id="to" required>
+            </div>
+            <div class="form-group">
+                <label for="date">Travel date:</label>
+                <input type="text" placeholder="YYYY-MM-DD" class="form-control" id="date" required>
+            </div>
+
+            <button type="submit" class="btn btn-default">Submit</button>
+        </form>
+
+    </div>
+
+    <div style="margin-top: 20px;">
+        <ul id="tabs" class="nav nav-tabs">
+
+        </ul>
+
+        <div class="tab-content" id="tabs-content">
+            <div id="404" class="hide not_found">Flights not found</div>
+        </div>
+        <div id="result" class="hide">
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th>Airline</th>
+                    <th>Departure</th>
+                    <th>Arrival</th>
+                    <th>Plane</th>
+                    <th>Price</th>
+                </tr>
+                </thead>
+                <tbody id="rows" >
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div id="loader" class="hide"></div>
+</div>
+<script>
+    initSearchForm();
+</script>
+
+</body>
+</html>

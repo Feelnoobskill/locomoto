@@ -1,0 +1,5 @@
+# Ignore test files
+test/*
+config/*
+node_modules
+Gulpfile.js
